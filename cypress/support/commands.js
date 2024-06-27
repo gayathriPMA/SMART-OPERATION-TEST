@@ -20,7 +20,10 @@ Cypress.Commands.add('logout', () => {
 /* navigate to the department screen */
 Cypress.Commands.add('navigateToDepartmentScreen', () => {
     cy.get('.menu').click();
-    cy.get('.bg-primary-light > :nth-child(1) > :nth-child(1) > :nth-child(2)').click();
+    
+    cy.get('li:contains("Department")')
+            .find('a')
+            .should('be.visible').click();
     cy.url().should('eq', 'https://smartoperation.siddhanproducts.com/#/layout/masters/department');
 });
 
