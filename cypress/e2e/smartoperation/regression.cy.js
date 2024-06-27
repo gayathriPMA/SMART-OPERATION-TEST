@@ -3,15 +3,12 @@ describe('Regression Suite', () => {
         cy.wait(5000);
     });
 
-    /* Logout */
-    afterEach(() => {
-        cy.logout();
-    });
-
+   
     /* check redirect URL*/
     it('Login with valid email & password', () => {
         cy.login();
         cy.url().should('eq', 'https://smartoperation.siddhanproducts.com/#/layout/dashboard');
+        cy.logout();
     });
 
     /* login with invalid password */
